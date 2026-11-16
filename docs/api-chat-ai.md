@@ -61,6 +61,29 @@ curl -X POST http://localhost:8000/api/chat-ai \
 
 `id`, `user_id` (FK, cascade), `prompt`, `ai_response`, `model_used`, `prompt_tokens`, `completion_tokens`, `total_tokens`, `created_at`, `updated_at`.
 
+## Mencoba dari PowerShell (Windows)
+
+Isi `.env` (nilai Senopati sama dengan default di `config/llm.php`; key diminta langsung ke Kamal, jangan di-commit):
+
+```
+LLM_BASE_URL=https://senopati.its.ac.id/llm-gateway/v1
+LLM_MODEL=qwen3:14b
+LLM_API_KEY=isi-key-asli
+```
+
+Ollama lokal: `LLM_BASE_URL=http://localhost:11434/v1`, `LLM_API_KEY` dikosongkan, `LLM_MODEL` sesuai hasil `ollama list`.
+Setelah `php artisan db:seed` dan `php artisan serve`, di terminal lain:
+
+```powershell
+$h = @{ Accept = 'application/json' }
+$login = Invoke-RestMethod -Method Post -Uri http://localhost:8000/api/login -Headers $h -ContentType 'application/json' -Body '{"email":"analyst@example.com","password":"password"}'
+$h.Authorization = "Bearer $($login.data.token)"
+Invoke-RestMethod -Method Post -Uri http://localhost:8000/api/chat-ai -Headers $h -ContentType 'application/json' -TimeoutSec 180 -Body '{"prompt":"Jelaskan middleware!"}' | ConvertTo-Json -Depth 5
+```
+
+Cek hasilnya di database: `php artisan tinker --execute="dump(App\Models\ChatLog::latest()->first()->toArray());"`.
+Jika responnya 502, lihat `storage/logs/laravel.log`.
+
 ## Titik sambung untuk sisi LLM
 
 `App\Actions\AskChatAi` memanggil `LlmClient::chat([...], ['tools' => false])` dan membaca `model` serta `usage`
