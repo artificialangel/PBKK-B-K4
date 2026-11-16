@@ -298,13 +298,6 @@ Kontrak yang sudah disediakan:
 
 Backend juga menyediakan agent loop pada `app/Services/Agent/AgentLoop.php` serta eksekusi tool melalui `ToolExecutor`. Persetujuan rencana pada UI F0 masih merupakan alur demo session; integrasi UI dengan eksekusi backend nyata belum dinyatakan selesai.
 
-**FE — @shfawr**
-- [ ] Integrasi UI chat Livewire Volt dengan backend agentic loop (menggantikan data demo session dengan data asli)
-- [ ] Tampilan status eksekusi tool, card persetujuan (approve/reject), dan riwayat `ToolCall` di antarmuka chat
-- [ ] Visualisasi ringkasan hasil audit & temuan keamanan pada halaman detail sesi
-- [ ] Pengujian aplikasi desktop lewat `composer native:dev` serta penyesuaian konfigurasi window di `NativeAppServiceProvider`
-- [ ] Test Livewire untuk pengiriman pesan, interaksi persetujuan tool, dan pembaruan state chat
-
 Bersama: pengujian end-to-end aplikasi & pembaruan dokumentasi pada `README.md`.
 
 ## Menuju UAS (Week 16)
