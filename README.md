@@ -143,7 +143,7 @@ php artisan test --compact tests/Feature/Api --stop-on-failure
 
 Cakupan meliputi pemilihan provider, fallback, autentikasi key provider, system prompt, streaming, penggunaan token, login/logout Sanctum, HTTP 401/422/502, format resource, serta penyimpanan log. `Http::fake()` digunakan untuk request LLM; hasil ini tidak membuktikan koneksi ke provider asli.
 
-Pada pengujian seluruh suite terakhir yang dilaporkan, terdapat **62 passed, 1 failed, dan 108 pending**. Suite berhenti pada tes tampilan login karena `public/build/manifest.json` belum tersedia (`Vite manifest not found`). Setelah dependency frontend dan build tersedia, ulangi suite lengkap.
+Pengujian seluruh suite lokal terbaru berhasil: **171 passed, 630 assertions**, dalam **12,09 detik** setelah build frontend dan koreksi tes log.
 
 ```bash
 npm ci
@@ -151,7 +151,7 @@ npm run build
 php artisan test --compact --stop-on-failure
 ```
 
-Status yang masih memerlukan konfirmasi: koneksi Senopati dengan key kelompok, fallback terhadap provider asli, streaming langsung dari provider, tampilan setelah build, seluruh suite, dan binary NativePHP. Hasil yang belum dikonfirmasi tersebut tidak ditandai sebagai lulus.
+Masih memerlukan konfirmasi: koneksi provider asli, fallback dan streaming langsung, peninjauan tampilan secara manual, serta binary NativePHP.
 
 ## Tema: Dynamic Application Security Testing (DAST)
 
