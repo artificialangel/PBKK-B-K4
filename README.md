@@ -208,6 +208,24 @@ Kontrak yang sudah disediakan:
 
 **Bersama:** slide pitch maks. 5 halaman / 5 menit.
 
+## Tugas Week 11 (kumpul link repo di LMS H-1 Pertemuan 12)
+
+**BE — @artificialangel**
+- [x] Tool DAST lanjutan & eksekusi aksi tervalidasi di ToolRegistry (validasi input, allowlist target, dan penanganan error)
+- [x] Alur persetujuan pengguna (Human-in-the-Loop) untuk aksi berisiko tinggi pada ChatSession / ToolCall
+- [x] Logging polymorphic ToolCall (`loggable`) ke tabel hasil pemindaian / temuan DAST
+- [x] Integrasi end-to-end loop agentic (`LlmService` → `ToolCall` → respons final ke `ChatMessage`)
+- [ ] Feature & unit test alur agentic loop, eksekusi tool, dan validasi keamanan
+
+**FE — @shfawr**
+- [ ] Integrasi UI chat Livewire Volt dengan backend agentic loop (menggantikan data demo session dengan data asli)
+- [ ] Tampilan status eksekusi tool, card persetujuan (approve/reject), dan riwayat `ToolCall` di antarmuka chat
+- [ ] Visualisasi ringkasan hasil audit & temuan keamanan pada halaman detail sesi
+- [ ] Pengujian aplikasi desktop lewat `composer native:dev` serta penyesuaian konfigurasi window di `NativeAppServiceProvider`
+- [ ] Test Livewire untuk pengiriman pesan, interaksi persetujuan tool, dan pembaruan state chat
+
+Bersama: pengujian end-to-end aplikasi & pembaruan dokumentasi pada `README.md`.
+
 ## Menuju UAS (Week 16)
 
 | Target | Pemilik |
